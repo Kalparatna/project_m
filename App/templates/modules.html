@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roadmap</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/modules.css' %}">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+</head>
+<body>
+    {% if modules %}
+        <!-- Actual Content Only If Modules Exist -->
+        <header style="text-align: center; margin-bottom: 20px;">
+            <img src="{% static 'images/logo.png' %}" alt="Logo" style="width: 150px;">
+            <h1 style="margin-top: 10px;">Roadmap</h1>
+        </header>
+
+        <h2 class="subtitle">Your Roadmap for Learning "{{ topic }}"</h2>
+
+        <div class="container">
+            {% for module in modules %}
+            <div class="card">
+                <h2>Module {{ forloop.counter }}</h2>
+                <p>{{ module }}</p>
+                <div style="text-align: center; margin-top: 20px;">
+                    <a href="{% url 'get_gemini_response' %}" class="specific-submit-button">Click Here</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+
+        <footer>
+            <p>&copy; 2024 Learning Modules Generator. All Rights Reserved.</p>
+            <p>Designed by Kalparatna</p>
+        </footer>
+
+    {% else %}
+        <!-- Loading Screen Until Modules Are Ready -->
+        <div style="text-align: center; margin-top: 100px;">
+            <img src="{% static 'images/logo.png' %}" alt="Logo" style="width: 150px; margin-bottom: 20px;">
+            <h2 style="color: #4847e2;">Generating your learning roadmap...</h2>
+            <p style="margin-top: 10px; font-size: 18px;">Please wait a moment!</p>
+        </div>
+    {% endif %}
+</body>
+</html>

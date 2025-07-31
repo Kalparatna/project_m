@@ -1,0 +1,22 @@
+<!-- home.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to AI Tutor Plus</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}"> <!-- Include CSS -->
+</head>
+<body>
+    <header>
+        <h1>Welcome to AI Tutor Plus</h1>
+        <p>Learn any topic from your favorite AI tutors, including Shah Rukh Khan, Steve Jobs, and more!</p>
+        <p>Engage in interactive learning with personalized modules, quizzes, and real-time responses tailored to your learning level.</p>
+    </header>
+
+    <main>
+        <button onclick="window.location.href='{% url 'index' %}'">Get Started</button> <!-- Button redirects to search topic page -->
+    </main>
+</body>
+</html>

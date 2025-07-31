@@ -1,0 +1,92 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Response</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'codeai/css/style.css' %}">
+    <style>
+        /* Add styles for better readability */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+        .response-container {
+            background-color: #ffffff;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+        }
+        .section-header {
+            color: #2980b9;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .section-content {
+            background-color: #ecf0f1;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 1em;
+            white-space: pre-wrap; /* Wraps long lines */
+            word-wrap: break-word; /* Ensures proper wrapping */
+            margin-bottom: 20px;
+        }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
+        .button-container a {
+            text-decoration: none;
+            background-color: #2980b9;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            display: inline-block;
+            font-size: 1em;
+        }
+        .button-container a:hover {
+            background-color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <h1>AI Coding Mentor Response</h1>
+
+    {% if response %}
+    <div class="response-container">
+        <div>
+            <div class="section-header">Task:</div>
+            <div class="section-content">{{ task }}</div>
+        </div>
+
+        <div>
+            <div class="section-header">Input Code or Request:</div>
+            <div class="section-content">{{ input }}</div>
+        </div>
+
+        <div>
+            <div class="section-header">AI Response:</div>
+            <div class="section-content">{{ response }}</div>
+        </div>
+
+        <div class="button-container">
+            <a href="{% url 'codeai:download_response' idx=idx %}">Download Response</a>
+            <a href="{% url 'codeai:index' %}">Go Back</a>
+        </div>
+    </div>
+    {% else %}
+    <p>No response available.</p>
+    {% endif %}
+</body>
+</html>

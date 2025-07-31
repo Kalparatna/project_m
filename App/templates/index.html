@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-TUTOR++</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/footer.css' %}">
+</head>
+<body>
+    <header>
+        <h1 class="page-title">Find Your Learning Topic</h1>
+    </header>
+
+    <main class="main-content">
+        <h2 class="subtitle">Unlock Your Learning Journey!</h2>
+        <p class="paragraph">
+            Enter a topic below to explore a world of knowledge tailored just for you.
+        </p>
+
+        <form method="POST" class="topic-form">
+            {% csrf_token %}
+            <label for="topic" class="topic-label">What do you want to learn about?</label>
+            <input type="text" id="topic" name="topic" class="topic-input" placeholder="Type your topic here..." value="{{ topic }}">
+            <button type="submit" class="generate-button">Search</button>
+        </form>
+
+        {% if error %}
+            <p class="error-message">{{ error }}</p>
+        {% endif %}
+    </main>
+
+    <footer>
+        <p>&copy; 2025 AI-TUTOR++. All Rights Reserved.</p>
+    </footer>
+</body>
+</html>

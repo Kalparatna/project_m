@@ -1,0 +1,87 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/character.css' %}"> <!-- Link to your CSS file -->
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <title>Choose Your AI Tutor</title>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1 class="title">AI Tutor Plus</h1>
+        </div>
+        <h2 class="subtitle">Choose your AI tutor</h2>
+        <form method="POST" action="{% url 'get_gemini_response' %}">
+            {% csrf_token %}
+            <div class="tutor-cards">
+                <div class="tutor-card" id="virat-card">
+                    <input type="radio" name="character" value="Virat Kohli" id="virat" required>
+                    <label for="virat">
+                        <div class="image-container">
+                            <img src="{% static 'images/image12.jpg' %}" alt="Virat Kohli" class="tutor-image">
+                        </div>
+                        <h3 class="tutor-name">Virat Kohli</h3>
+                        <p class="tutor-description">Virat Kohli, a world-renowned cricketer, is known for his leadership, discipline, and relentless drive for excellence.</p>
+                    </label>
+                </div>
+
+                <div class="tutor-card" id="doraemon-card">
+                    <input type="radio" name="character" value="Doraemon" id="doraemon" required>
+                    <label for="doraemon">
+                        <div class="image-container">
+                            <img src="{% static 'images/image22.jpg' %}" alt="Doraemon" class="tutor-image">
+                        </div>
+                        <h3 class="tutor-name">Doraemon</h3>
+                        <p class="tutor-description">Doraemon is a helpful robotic cat from the future, always ready with futuristic gadgets to solve any problem.</p>
+                    </label>
+                </div>
+
+                <div class="tutor-card" id="srk-card">
+                    <input type="radio" name="character" value="Shah Rukh Khan" id="srk" required>
+                    <label for="srk">
+                        <div class="image-container">
+                            <img src="{% static 'images/image42.jpg' %}" alt="Shah Rukh Khan" class="tutor-image">
+                        </div>
+                        <h3 class="tutor-name">Shah Rukh Khan</h3>
+                        <p class="tutor-description">Shah Rukh Khan, the King of Bollywood, is known for his charisma, wit, and resilience.</p>
+                    </label>
+                </div>
+
+                <div class="tutor-card" id="jobs-card">
+                    <input type="radio" name="character" value="Steve Jobs" id="jobs" required>
+                    <label for="jobs">
+                        <div class="image-container">
+                            <img src="{% static 'images/image32.jpg' %}" alt="Steve Jobs" class="tutor-image">
+                        </div>
+                        <h3 class="tutor-name">Steve Jobs</h3>
+                        <p class="tutor-description">Steve Jobs, a visionary and innovator, co-founded Apple and revolutionized the tech industry.</p>
+                    </label>
+                </div>
+            </div>
+            <button type="submit" class="submit-button">Submit</button>
+        </form>
+    </div>
+
+    <script>
+        // Get all tutor cards and radio buttons
+        const tutorCards = document.querySelectorAll('.tutor-card');
+        const radioButtons = document.querySelectorAll('input[type="radio"]');
+
+        // Add event listener for each radio button
+        radioButtons.forEach((radio, index) => {
+            radio.addEventListener('change', () => {
+                // Remove "selected" class from all cards
+                tutorCards.forEach(card => {
+                    card.classList.remove('selected');
+                });
+                // Add "selected" class to the corresponding card
+                tutorCards[index].classList.add('selected');
+            });
+        });
+    </script>
+</body>
+</html>

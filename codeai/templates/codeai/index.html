@@ -1,0 +1,32 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Coding Mentor</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'codeai/css/style.css' %}">
+</head>
+<body>
+    <h1>AI Coding Mentor 💻</h1>
+
+    <form method="POST" id="coding-form" action="{% url 'codeai:index' %}">
+        {% csrf_token %}
+        <label for="task_type">Task Type:</label>
+        <select name="task_type" id="task_type">
+            {% for task in task_types %}
+            <option value="{{ task }}">{{ task }}</option>
+            {% endfor %}
+        </select>
+    
+        <label for="user_input">Enter your code or request:</label>
+        <textarea name="user_input" id="user_input" rows="10" placeholder="Paste your code or describe your problem..."></textarea>
+    
+        <button type="submit">Get Assistance</button>
+    </form>
+    
+    
+</body>
+</html>

@@ -1,0 +1,218 @@
+/* title.css - Updated for AI-TUTOR++ Cartoon Theme */
+
+/* Importing fonts */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #2b38f0;
+    --secondary-color: #4847e2;
+    --accent-color: #01050e;    
+    --light-color: #fefefe;
+    --dark-color: #202124;
+    --gradient-primary: linear-gradient(135deg, #4847e2 0%, #01050e 100%);
+    --shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body - Ensure the background does not affect the footer */
+body {
+    font-family: 'Fredoka', sans-serif;
+    background: url("../images/bg-pattern.svg") repeat;
+    background-size: cover;
+    color: var(--dark-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures that the body takes at least the full height of the viewport */
+    background-color: var(--light-color); /* Ensure the body background color doesn't override footer */
+}
+
+/* Header */
+header {
+    padding: 2rem;
+    text-align: center;
+    background: var(--gradient-primary);
+    color: white;
+    box-shadow: var(--shadow);
+    border-bottom: 4px solid var(--accent-color);
+}
+
+.page-title {
+    font-size: 3rem;
+    font-weight: 700;
+    animation: fadeInDown 1s ease-out;
+}
+
+
+/* Main Content Styles */
+.main-content {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1; /* This allows the main content to expand and push the footer to the bottom */
+}
+
+.subtitle {
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--secondary-color);
+    margin-bottom: 1rem;
+    animation: fadeIn 1.2s ease-in-out;
+}
+
+.paragraph {
+    font-size: 1.1rem;
+    color: #555;
+    max-width: 700px;
+    margin-bottom: 2rem;
+}
+
+/* Form Styles */
+.topic-form {
+    background-color: white;
+    padding: 2rem 2.5rem;
+    border-radius: 20px;
+    box-shadow: var(--shadow);
+    max-width: 600px;
+    width: 100%;
+    animation: fadeInUp 1.5s ease-in-out;
+}
+
+.topic-label {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-bottom: 0.8rem;
+    display: block;
+    color: var(--dark-color);
+}
+
+.topic-input {
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 10px;
+    border: 2px solid #ccc;
+    width: 100%;
+    margin-bottom: 1.5rem;
+    transition: var(--transition);
+}
+
+.topic-input:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(58, 134, 255, 0.2);
+}
+
+.generate-button {
+    padding: 1rem 2rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background: var(--gradient-primary);
+    border: none;
+    border-radius: 50px;
+    color: white;
+    cursor: pointer;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.generate-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Error message */
+.error-message {
+    margin-top: 1rem;
+    color: #d90429;
+    font-weight: 500;
+}
+
+/* Quiz Button */
+a button {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background-color: var(--accent-color);
+    border: none;
+    color: white;
+    font-weight: 600;
+    font-size: 1.1rem;
+    border-radius: 50px;
+    cursor: pointer;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
+
+a button:hover {
+    background-color: #27009c;
+    transform: scale(1.05);
+}
+
+
+/* Footer */
+footer {
+    background-color: var(--dark-color);
+    color: #f1f1f1;
+    padding: 2rem;
+    text-align: center;
+    border-top: 4px solid var(--primary-color);
+    margin-top: auto; /* Pushes footer to the bottom */
+    width: 100%; /* Ensures the footer spans the full width */
+}
+
+footer p {
+    margin: 0.5rem 0;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes fadeInDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeInUp {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .page-title {
+        font-size: 2.2rem;
+    }
+    .subtitle {
+        font-size: 1.6rem;
+    }
+    .generate-button {
+        width: 100%;
+    }
+}

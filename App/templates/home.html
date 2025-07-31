@@ -1,0 +1,408 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-TUTOR+ : Learn Smarter</title>
+ 
+    <link rel="stylesheet" href="{% static 'front/navbar.css' %}">
+    <link rel="stylesheet" href="{% static 'front/hero.css' %}">
+    <link rel="stylesheet" href="{% static 'front/team.css' %}">
+    <link rel="stylesheet" href="{% static 'front/faq.css' %}">
+    <link rel="stylesheet" href="{% static 'front/plan.css' %}">
+    <link rel="stylesheet" href="{% static 'front/revolution.css' %}">
+    <link rel="stylesheet" href="{% static 'front/contact.css' %}">
+    <link rel="stylesheet" href="{% static 'front/scroll.css' %}">
+    <link rel="stylesheet" href="{% static 'front/footer.css' %}">
+
+   <link rel="icon" href="{% static 'images/favicon.ico' %}">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- Leaflet CSS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <!-- Leaflet JavaScript -->
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+
+<!-- Navbar -->
+<header class="navbar">
+    <div class="navbar-container">
+        <div class="navbar-brand">
+            <img src="{% static 'images/logo.png' %}" alt="EduStar Logo" class="logo">
+            <span class="brand-name">AI-TUTOR+</span>
+        </div>
+        <nav class="nav-links">
+            <ul>
+                <li><a href=".navbar">Home</a></li>
+                <li><a href=".team-member">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+            <button class="get-started-btn" onclick="window.location.href='{% url 'services' %}'">Services</button>
+        </nav>
+    </div>
+
+    <!-- Navbar Toggle Button for Mobile View -->
+    <button class="navbar-toggle" aria-label="Toggle Navigation">
+        <div></div>
+        <div></div>
+        <div></div>
+    </button>
+</header>
+
+
+
+<!-- Main Banner Section -->
+<section class="hero-section">
+    <div class="hero-container">
+        <div class="content">
+            <h2 class="banner-number">A Personalized Learning Journey</h2>
+            <h3 class="headline">Learn Smarter</h3>
+            <p class="subtext">Unlock the potential of learning designed just for you! Our advanced platform offers a customized educational journey, empowering you to master topics at your own pace. Whether you're diving into something new or refining your skills, we're here to guide you every step of the way.</p>
+            <button class="join-now-btn" onclick="window.location.href='{% url 'services' %}'">Join Now</button>
+        </div>
+        <div class="hero-image">
+            <img src="{% static 'images/svg.png' %}" alt="Hero Image">
+        </div>
+    </div>
+</section>
+
+<!-- Our Team Section -->
+<section class="team-section">
+    <h2>Our Team</h2>
+    <p>Meet the experts behind AI-TUTOR+ who are revolutionizing the learning experience.</p>
+    <div class="team-container">
+        <div class="team-member">
+            
+
+        <!-- <?xml version="1.0" standalone="no"?>   -->
+        <svg id="sw-js-blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+            <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
+                <stop id="stop1" stop-color="rgba(0.664, 1.414, 23.536, 1)" offset="0%"></stop>
+                <stop id="stop2" stop-color="rgba(71.662, 72.011, 226.227, 1)" offset="100%"></stop>
+            </linearGradient>
+            </defs>
+            <mask id="mask1" mask-type="alpha">
+            <path
+            fill="url(#sw-gradient)"
+            d="M16.7,-21.6C22.1,-15.4,27.2,-10.6,29.5,-4.2C31.8,2.1,31.3,10,27.5,15.2C23.7,20.5,16.6,23.3,9.4,26.1C2.1,28.9,-5.2,31.8,-12.4,30.7C-19.6,29.5,-26.6,24.5,-28.9,17.9C-31.3,11.4,-29,3.3,-26.2,-3.3C-23.5,-9.9,-20.3,-15.2,-15.9,-21.6C-11.4,-27.9,-5.7,-35.4,0,-35.4C5.7,-35.4,11.3,-27.8,16.7,-21.6Z"
+            width="100%"
+            height="100%"
+            transform="translate(50 50)"
+            stroke-width="0"
+            style="transition: 0.3s;"
+            stroke="url(#sw-gradient)"
+            /> 
+        </mask>
+        <g mask="url(#mask1)">
+        <path
+            fill="url(#sw-gradient)"
+            d="M16.7,-21.6C22.1,-15.4,27.2,-10.6,29.5,-4.2C31.8,2.1,31.3,10,27.5,15.2C23.7,20.5,16.6,23.3,9.4,26.1C2.1,28.9,-5.2,31.8,-12.4,30.7C-19.6,29.5,-26.6,24.5,-28.9,17.9C-31.3,11.4,-29,3.3,-26.2,-3.3C-23.5,-9.9,-20.3,-15.2,-15.9,-21.6C-11.4,-27.9,-5.7,-35.4,0,-35.4C5.7,-35.4,11.3,-27.8,16.7,-21.6Z"
+            width="100%"
+            height="100%"
+            transform="translate(50 50)"
+            stroke-width="0"
+            style="transition: 0.3s;"
+            stroke="url(#sw-gradient)"
+            /> 
+            <image class="newImage" x="15%" y="3%" width="60%" height="100%" href="{% static 'images/image1_r.png' %}"/>
+        </g>
+        </svg>
+            <h3>Kalparatna Mahajan</h3>
+            <p>-----------</p>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Magnam delectus laboriosam minima itaque velit eius dolorem deleniti ab, quae id fugiat veritatis? Molestias blanditiis, non nobis repellendus similique porro animi!</p>
+        </div>
+        <div class="team-member">
+            
+
+        <!-- <?xml version="1.0" standalone="no"?>   -->
+        <svg id="sw-js-blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+            <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
+                <stop id="stop1" stop-color="rgba(0.664, 1.414, 23.536, 1)" offset="0%"></stop>
+                <stop id="stop2" stop-color="rgba(71.662, 72.011, 226.227, 1)" offset="100%"></stop>
+            </linearGradient>
+            </defs>
+            <mask id="mask1" mask-type="alpha">
+            <path
+            fill="url(#sw-gradient)"
+            d="M16.7,-21.6C22.1,-15.4,27.2,-10.6,29.5,-4.2C31.8,2.1,31.3,10,27.5,15.2C23.7,20.5,16.6,23.3,9.4,26.1C2.1,28.9,-5.2,31.8,-12.4,30.7C-19.6,29.5,-26.6,24.5,-28.9,17.9C-31.3,11.4,-29,3.3,-26.2,-3.3C-23.5,-9.9,-20.3,-15.2,-15.9,-21.6C-11.4,-27.9,-5.7,-35.4,0,-35.4C5.7,-35.4,11.3,-27.8,16.7,-21.6Z"
+            width="100%"
+            height="100%"
+            transform="translate(50 50)"
+            stroke-width="0"
+            style="transition: 0.3s;"
+            stroke="url(#sw-gradient)"
+            /> 
+        </mask>
+        <g mask="url(#mask1)">
+        <path
+            fill="url(#sw-gradient)"
+            d="M16.7,-21.6C22.1,-15.4,27.2,-10.6,29.5,-4.2C31.8,2.1,31.3,10,27.5,15.2C23.7,20.5,16.6,23.3,9.4,26.1C2.1,28.9,-5.2,31.8,-12.4,30.7C-19.6,29.5,-26.6,24.5,-28.9,17.9C-31.3,11.4,-29,3.3,-26.2,-3.3C-23.5,-9.9,-20.3,-15.2,-15.9,-21.6C-11.4,-27.9,-5.7,-35.4,0,-35.4C5.7,-35.4,11.3,-27.8,16.7,-21.6Z"
+            width="100%"
+            height="100%"
+            transform="translate(50 50)"
+            stroke-width="0"
+            style="transition: 0.3s;"
+            stroke="url(#sw-gradient)"
+            /> 
+            <image class="newImage" x="15%" y="3%" width="60%" height="100%" href="{% static 'images/image1_r.png' %}"/>
+        </g>
+        </svg>
+
+        
+            <h3>Jayesh Bhandarkar</h3>
+            <p>-----------</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Neque, voluptatem, rerum aliquid quibusdam expedita sint deleniti aut eos labore ut ratione necessitatibus reiciendis excepturi voluptates ipsum culpa minima cum placeat.</p>
+        </div>
+        <div class="team-member">
+            
+
+        <!-- <?xml version="1.0" standalone="no"?>   -->
+        <svg id="sw-js-blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+            <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
+                <stop id="stop1" stop-color="rgba(0.664, 1.414, 23.536, 1)" offset="0%"></stop>
+                <stop id="stop2" stop-color="rgba(71.662, 72.011, 226.227, 1)" offset="100%"></stop>
+            </linearGradient>
+            </defs>
+            <mask id="mask1" mask-type="alpha">
+            <path
+            fill="url(#sw-gradient)"
+            d="M16.7,-21.6C22.1,-15.4,27.2,-10.6,29.5,-4.2C31.8,2.1,31.3,10,27.5,15.2C23.7,20.5,16.6,23.3,9.4,26.1C2.1,28.9,-5.2,31.8,-12.4,30.7C-19.6,29.5,-26.6,24.5,-28.9,17.9C-31.3,11.4,-29,3.3,-26.2,-3.3C-23.5,-9.9,-20.3,-15.2,-15.9,-21.6C-11.4,-27.9,-5.7,-35.4,0,-35.4C5.7,-35.4,11.3,-27.8,16.7,-21.6Z"
+            width="100%"
+            height="100%"
+            transform="translate(50 50)"
+            stroke-width="0"
+            style="transition: 0.3s;"
+            stroke="url(#sw-gradient)"
+            /> 
+        </mask>
+        <g mask="url(#mask1)">
+        <path
+            fill="url(#sw-gradient)"
+            d="M16.7,-21.6C22.1,-15.4,27.2,-10.6,29.5,-4.2C31.8,2.1,31.3,10,27.5,15.2C23.7,20.5,16.6,23.3,9.4,26.1C2.1,28.9,-5.2,31.8,-12.4,30.7C-19.6,29.5,-26.6,24.5,-28.9,17.9C-31.3,11.4,-29,3.3,-26.2,-3.3C-23.5,-9.9,-20.3,-15.2,-15.9,-21.6C-11.4,-27.9,-5.7,-35.4,0,-35.4C5.7,-35.4,11.3,-27.8,16.7,-21.6Z"
+            width="100%"
+            height="100%"
+            transform="translate(50 50)"
+            stroke-width="0"
+            style="transition: 0.3s;"
+            stroke="url(#sw-gradient)"
+            /> 
+            <image class="newImage" x="15%" y="3%" width="60%" height="100%" href="{% static 'images/image1_r.png' %}"/>
+        </g>
+        </svg>
+            <h3>Dhanashree Chaudhari</h3>
+            <p>-----------</p>
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vero nostrum reiciendis exercitationem explicabo ducimus nam vitae neque saepe asperiores! Beatae perferendis provident consequatur dolor sequi aspernatur accusantium. Beatae, similique provident.</p>
+        </div>
+        <div class="team-member">
+            
+
+        <!-- <?xml version="1.0" standalone="no"?>   -->
+        <svg id="sw-js-blob-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">
+            <defs>
+            <linearGradient id="sw-gradient" x1="0" x2="1" y1="1" y2="0">
+                <stop id="stop1" stop-color="rgba(0.664, 1.414, 23.536, 1)" offset="0%"></stop>
+                <stop id="stop2" stop-color="rgba(71.662, 72.011, 226.227, 1)" offset="100%"></stop>
+            </linearGradient>
+            </defs>
+            <mask id="mask1" mask-type="alpha">
+            <path
+            fill="url(#sw-gradient)"
+            d="M16.7,-21.6C22.1,-15.4,27.2,-10.6,29.5,-4.2C31.8,2.1,31.3,10,27.5,15.2C23.7,20.5,16.6,23.3,9.4,26.1C2.1,28.9,-5.2,31.8,-12.4,30.7C-19.6,29.5,-26.6,24.5,-28.9,17.9C-31.3,11.4,-29,3.3,-26.2,-3.3C-23.5,-9.9,-20.3,-15.2,-15.9,-21.6C-11.4,-27.9,-5.7,-35.4,0,-35.4C5.7,-35.4,11.3,-27.8,16.7,-21.6Z"
+            width="100%"
+            height="100%"
+            transform="translate(50 50)"
+            stroke-width="0"
+            style="transition: 0.3s;"
+            stroke="url(#sw-gradient)"
+            /> 
+        </mask>
+        <g mask="url(#mask1)">
+        <path
+            fill="url(#sw-gradient)"
+            d="M16.7,-21.6C22.1,-15.4,27.2,-10.6,29.5,-4.2C31.8,2.1,31.3,10,27.5,15.2C23.7,20.5,16.6,23.3,9.4,26.1C2.1,28.9,-5.2,31.8,-12.4,30.7C-19.6,29.5,-26.6,24.5,-28.9,17.9C-31.3,11.4,-29,3.3,-26.2,-3.3C-23.5,-9.9,-20.3,-15.2,-15.9,-21.6C-11.4,-27.9,-5.7,-35.4,0,-35.4C5.7,-35.4,11.3,-27.8,16.7,-21.6Z"
+            width="100%"
+            height="100%"
+            transform="translate(50 50)"
+            stroke-width="0"
+            style="transition: 0.3s;"
+            stroke="url(#sw-gradient)"
+            /> 
+            <image class="newImage" x="15%" y="3%" width="60%" height="100%" href="{% static 'images/image1_r.png' %}"/>
+        </g>
+        </svg>
+            <h3>Jagruti Wagh</h3>
+            <p>-----------</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, repellat nesciunt maiores voluptatibus vel iure quasi, fuga mollitia dolor, earum et minima officia natus repellendus nam dolore facilis laborum similique..</p>
+        </div>
+    </div>
+</section>
+
+        <!-- FAQ Section -->
+        <!-- FAQ Section -->
+<section class="faq-section">
+    <h2>Your Burning Questions Answered!</h2>
+    <div class="faq-container">
+
+        <div class="faq-item">
+            <div class="faq-question">
+                What is the AI tutor?
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>The AI tutor is an interactive learning platform that uses artificial intelligence to provide personalized educational experiences. 
+                It offers users the opportunity to learn various topics through engaging and dynamic conversations with AI versions of popular celebrities. The tutors are designed to reflect the knowledge and personality of the celebrities, making learning more relatable and enjoyable.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                How does it work?
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>The AI tutor utilizes advanced natural language processing (NLP) and machine learning algorithms to understand user queries and generate relevant responses. Users can enter a topic they want to learn about, choose a celebrity tutor, and select their learning level (beginner, intermediate, or advanced). The AI then provides information, explanations, and interactive modules tailored to the user’s needs, ensuring an engaging learning experience.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Can I choose my celebrity tutor?
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, you can choose from a selection of celebrity tutors, such as Shah Rukh Khan, Virat Kohli, Steve Jobs, Cristiano Ronaldo, Taylor Swift, and others. Each tutor has a unique personality and style of teaching, allowing you to learn in a way that resonates with you. This feature adds a fun and personal touch to the learning process.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                Is it suitable for all ages?
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <p>Yes, the AI tutor is designed to be suitable for learners of all ages. The content can be tailored to different learning levels, ensuring that both young students and adults can benefit from the platform. Whether you're looking to learn basic concepts or advanced topics, the AI tutor adapts to your needs.</p>
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">
+                How do I get started?
+                <span class="faq-toggle">▼</span>
+            </div>
+            <div class="faq-answer">
+                <ul class="faq-steps">
+                    <li>Visit the home page of the AI tutor platform.</li> 
+                    <li>Click on the "Get Started" button to access the topic search page.</li> 
+                    <li>Enter the topic you want to learn about and submit it.</li> 
+                    <li>Choose your favorite celebrity tutor from the list provided.</li> 
+                    <li>Select your learning level (beginner, intermediate, or advanced).</li> 
+                    <li>You’ll then be redirected to the chat interface, where you can start asking questions and engaging with your tutor!</li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!--
+ Plan Section 
+    <section class="plan-section">
+        <h2>Choose Your Plan</h2>
+        <p>Find the perfect plan for your learning journey and start today.</p>
+        <button class="choose-plan-btn">Explore Plans</button>
+
+        Plan Cards Container 
+        <div class="plan-container">
+            <div class="plan-card">
+                <h3>Free Plan</h3>
+                <p>Get started with basic tutorials and community access.</p>
+                <h4>Free</h4>
+                <button class="select-plan-btn">Select Plan</button>
+            </div>
+            <div class="plan-card">
+                <h3>Basic Plan</h3>
+                <p>Access to standard courses, interactive quizzes, and community support.</p>
+                <h4>$19.99/month</h4>
+                <button class="select-plan-btn">Select Plan</button>
+            </div>
+            <div class="plan-card">
+                <h3>Standard Plan</h3>
+                <p>Includes all basic features plus access to live sessions and advanced courses.</p>
+                <h4>$39.99/month</h4>
+                <button class="select-plan-btn">Select Plan</button>
+            </div>
+            <div class="plan-card">
+                <h3>Premium Plan</h3>
+                <p>All features included: personalized mentoring, exclusive content, and priority support.</p>
+                <h4>$59.99/month</h4>
+                <button class="select-plan-btn">Select Plan</button>
+            </div>
+        </div>
+    </section>
+
+-->
+
+    <!-- Join the Learning Revolution -->
+    <section class="revolution-section">
+        <h2>Join the Learning Revolution</h2>
+        <p>Don't just learn, master! Be part of the future with AI-TUTOR+.</p>
+        <button class="join-revolution-btn" onclick="window.location.href='{% url 'services' %}'">Join the Revolution</button>
+        
+        <!-- Social Media Links -->
+        <div class="social-media-links">
+            <a href="https://www.facebook.com" target="_blank" class="social-icon facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://www.twitter.com" target="_blank" class="social-icon twitter">
+                <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com" target="_blank" class="social-icon instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" class="social-icon linkedin">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+        </div>
+        </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Get in Touch!</h2>
+        <form id="contact-form">
+            <input type="text" id="name" name="name" placeholder="Name" required>
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <textarea id="message" name="message" placeholder="Message" rows="5" required></textarea>
+            <button type="submit">Send It!</button>
+        </form>
+        <div id="contact-info">
+            <div>
+                <h3>Contact Us</h3>
+                <p><strong>Phone:</strong> 1-800-LEARN-AI</p>
+                <p><strong>Email:</strong> info@celebritytutor.com</p>
+                <p><strong>Address:</strong> 123 AI Lane, Tech City, CA 90210</p>
+                <p><strong>Working Hours:</strong> Mon-Fri: 9am - 5pm</p>
+            </div>
+            <div id="map"></div>
+        </div>
+    </section>
+
+    <button id="back-to-top-btn" title="Go to top">🔝</button>
+
+    <script src="{% static 'js/front.js' %}"></script>   
+    <script src="{% static 'js/Navbar.js' %}"></script>  
+
+
+    <footer>
+        <p>&copy; 2025 AI-TUTOR++. All Rights Reserved.</p>
+        <p>Designed by Kalparatna</p>
+    </footer>
+</body>
+</html>

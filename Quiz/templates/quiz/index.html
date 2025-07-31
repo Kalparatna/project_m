@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate MCQs</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/start.css' %}">
+</head>
+<body>
+    <div class="container">
+        <h1>Generate MCQs</h1>
+        <div class="form-card">
+            <form method="POST">
+                {% csrf_token %}
+                <div class="input-group">
+                    <label for="topic">Enter Topic:</label>
+                    <input type="text" id="topic" name="topic" placeholder="e.g., Python Basics" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="num_questions">Select Number of Questions:</label>
+                    <select id="num_questions" name="num_questions" required>
+                        <option value="5">5</option>
+                        <option value="10" selected>10</option> <!-- Default 10 -->
+                        <option value="20">20</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="glow-button">Generate</button>
+            </form>
+
+            {% if error %}
+                <p class="error">{{ error }}</p>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+{% load static %}
+<html>
+    <head>
+        <link rel="stylesheet" href="{% static 'summaries/css/styles.css' %}">
+        <link rel="icon" href="{% static 'images/favicon.ico' %}">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+        <title>Lecture Summaries</title>
+    </head>
+    
+<body>
+    <h1>Lecture Summaries 📹</h1>
+    <form method="POST" action="{% url 'summaries:generate_summary' %}">
+
+        {% csrf_token %}
+        <label for="youtube_url">YouTube URL:</label>
+        <input type="text" name="youtube_url" placeholder="Paste the YouTube URL here..." required>
+        <label for="summary_type">Summary Type:</label>
+        <select name="summary_type">
+            <option value="Concise">Concise</option>
+            <option value="Detailed">Detailed</option>
+            <option value="Bullet Points">Bullet Points</option>
+            <option value="Academic">Academic</option>
+            <option value="Simple Language">Simple Language</option>
+        </select>
+        <label for="summary_length">Summary Length (%):</label>
+        <input type="number" name="summary_length" min="10" max="50" value="30">
+        <button type="submit">Generate Summary</button>
+    </form>
+</body>
+</html>

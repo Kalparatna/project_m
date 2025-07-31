@@ -1,0 +1,25 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Start Quiz</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/start_quiz.css' %}">
+</head>
+<body>
+    <div class="quiz-container">
+        <h1>Ready to Start the Quiz?</h1>
+        <div class="quiz-info">
+            <p>Topic: {{ topic.title }}</p>
+            <p>Number of Questions: {{ topic.num_questions }}</p>
+        </div>
+
+        <form action="{% url 'quiz:take_quiz' topic.id %}" method="get">
+            <button type="submit">Start Quiz</button>
+        </form>
+    </div>
+</body>    
+</html>

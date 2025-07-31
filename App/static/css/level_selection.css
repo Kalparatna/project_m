@@ -1,0 +1,124 @@
+/* Base styling */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #01050e, #4847e2); 
+    color: #333;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Title styling */
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: #000000;
+    text-align: center;
+}
+
+/* Form container styling */
+.form-container {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(15px);
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    padding: 40px 60px;
+    max-width: 600px;
+    width: 90%;
+    text-align: center;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+/* Input styling */
+input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #06007c;
+    border-radius: 50%;
+    margin-right: 15px;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+input[type="radio"]:checked::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 8px;
+    height: 8px;
+    background: #06007c;
+    border-radius: 50%;
+}
+
+/* Label styling */
+label {
+    font-size: 1.4rem;
+    color: #000000;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+label:hover {
+    color: #06007c;
+}
+
+/* Button styling */
+button {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: white;
+    background-color: #06007c;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+button:hover {
+    background-color: #050b88;
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 123, 255, 0.5);
+    border: 2px solid #06007c;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+    .form-container {
+        padding: 20px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    label {
+        font-size: 1.2rem;
+    }
+
+    button {
+        width: 100%;
+        padding: 15px;
+        font-size: 1.1rem;
+    }
+}

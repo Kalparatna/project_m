@@ -1,0 +1,23 @@
+{% load static %}
+<html>
+<head>
+    <link rel="stylesheet" href="{% static 'summaries/css/styles.css' %}">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+    <title>Summary</title>
+</head>
+<body>
+    <h1>Generated Summary 📄</h1>
+
+    <div class="summary-card">
+        <p><strong>🎥 Video URL:</strong> <a href="{{ youtube_url }}" target="_blank">{{ youtube_url }}</a></p>
+
+        <h2>📝 Summary ({{ summary_length }}% - {{ summary_type }}):</h2>
+        <div class="summary-text">
+            {{ summary|linebreaks }}
+        </div>
+    </div>
+
+    <a class="back-link" href="{% url 'summaries:index' %}">🔄 Generate another summary</a>
+</body>
+</html>

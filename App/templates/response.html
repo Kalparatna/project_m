@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat with {{ character }}</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+</head>
+<body>
+    <h1>Chat with {{ character }}</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="user_input">Ask Query:</label>
+        <input type="text" name="user_input" id="user_input" required>
+        <button type="submit">Ask the question</button>
+    </form>
+    
+    {% if response %}
+        <h2>{{ character }}'s Response:</h2>
+        <p>{{ response }}</p>
+    {% endif %}
+</body>
+</html>

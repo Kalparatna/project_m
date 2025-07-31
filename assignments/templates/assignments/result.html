@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Resource</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/result.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Generated Resource</h1>
+        <div class="resource-output">
+            <div class="form-row">
+                <label for="generated_resource">Generated Content</label>
+                <textarea id="generated_resource" rows="15" readonly>{{ result }}</textarea>
+            </div>
+        </div>
+        
+        <!-- Button to trigger PDF download -->
+        <a href="{% url 'assignments:download_pdf' %}?content={{ result }}" class="btn">Download as PDF</a>
+
+        <form method="post">
+            {% csrf_token %}
+            <button type="submit" class="btn">Generate Another Resource</button>
+        </form>
+    </div>
+</body>
+</html>

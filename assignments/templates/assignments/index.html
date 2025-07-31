@@ -1,0 +1,85 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Generated Study Resources</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Generate AI Study Resources</h1>
+        <form method="post" class="resource-form">
+            {% csrf_token %}
+            <div class="form-row">
+                <label for="resource_type">Resource Type</label>
+                {{ form.resource_type }}
+            </div>
+            <div class="form-row">
+                <label for="subject">Subject</label>
+                {{ form.subject }}
+            </div>
+            <div class="form-row">
+                <label for="difficulty">Difficulty Level</label>
+                {{ form.difficulty }}
+            </div>
+            <div class="form-row">
+                <label for="subtopics">Subtopics</label>
+                {{ form.subtopics }}
+            </div>
+            <div class="form-row">
+                <label for="education_level">Education Level</label>
+                {{ form.education_level }}
+            </div>
+            <div class="form-row">
+                <label for="question_count">Question Count</label>
+                {{ form.question_count }}
+            </div>
+            <div class="form-row">
+                <label for="time_limit">Time Limit (Minutes)</label>
+                {{ form.time_limit }}
+            </div>
+            <div class="form-row">
+                <label for="question_types">Question Types</label>
+                {{ form.question_types }}
+            </div>
+            <div class="form-row">
+                <label for="card_count">Card Count</label>
+                {{ form.card_count }}
+            </div>
+            <div class="form-row">
+                <label for="include_examples">Include Examples</label>
+                {{ form.include_examples }}
+            </div>
+            <div class="form-row">
+                <label for="format_style">Format Style</label>
+                {{ form.format_style }}
+            </div>
+            <div class="form-row">
+                <label for="include_diagrams">Include Diagrams</label>
+                {{ form.include_diagrams }}
+            </div>
+            <div class="form-row">
+                <label for="central_topic">Central Topic</label>
+                {{ form.central_topic }}
+            </div>
+            <div class="form-row">
+                <label for="depth_level">Depth Level</label>
+                {{ form.depth_level }}
+            </div>
+            <div class="form-row">
+                <label for="quiz_questions">Quiz Questions</label>
+                {{ form.quiz_questions }}
+            </div>
+            <div class="form-row">
+                <label for="include_explanations">Include Explanations</label>
+                {{ form.include_explanations }}
+            </div>
+            <button type="submit" class="btn">Generate</button>
+        </form>
+    </div>
+</body>
+</html>

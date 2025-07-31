@@ -1,0 +1,31 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Level</title>
+    <!-- Link to the CSS file -->
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/level_selection.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Select Level for {{ character }}</h1>
+        <form method="POST">
+            {% csrf_token %}
+            <label>
+                <input type="radio" name="level" value="beginner" required> Beginner
+            </label><br>
+            <label>
+                <input type="radio" name="level" value="intermediate" required> Intermediate
+            </label><br>
+            <label>
+                <input type="radio" name="level" value="advanced" required> Advanced
+            </label><br>
+            <button type="submit">Continue</button>
+        </form>
+    </div>
+</body>
+</html>

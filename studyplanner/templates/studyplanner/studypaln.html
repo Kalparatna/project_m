@@ -1,0 +1,26 @@
+<!-- studyplanner/studyplan.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generated Study Plan</title>
+</head>
+<body>
+    <h1>Your Generated Study Plan</h1>
+
+    <div>
+        <h3>Study Plan Details</h3>
+        <div>{{ study_plan|safe }}</div>
+    </div>
+
+    <form action="{% url 'download_text_file' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="study_plan" value="{{ study_plan }}">
+        <button type="submit">Download as Text File</button>
+    </form>
+    
+    <br><br>
+    <a href="{% url 'index' %}">Back to Homepage</a>
+</body>
+</html>

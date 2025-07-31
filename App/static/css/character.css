@@ -1,0 +1,138 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #01050e, #4847e2); 
+    color: #000000;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1); /* Slight transparency */
+    border-radius: 15px; /* Increased border radius */
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2); /* Deeper shadow for depth */
+    backdrop-filter: blur(10px); /* Frosted glass effect for the container */
+}
+
+.header {
+    text-align: center;
+}
+
+.title {
+    font-size: 3.5em; /* Slightly larger title */
+    color: #58a6ff; /* Stylish blue */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Shadow effect for depth */
+}
+
+.subtitle {
+    font-size: 1.8em; /* Increased subtitle size */
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.tutor-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px 0; /* Added padding around cards */
+}
+
+.tutor-card {
+    background: rgba(236, 229, 229, 0.3); /* Increase transparency for a stronger glass effect */
+    border: 1px solid rgba(255, 255, 255, 0.5); /* Slightly more opaque border for better definition */
+    border-radius: 15px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s, box-shadow 0.3s;
+    padding: 20px;
+    width: calc(50% - 10px); /* Two cards per row */
+    box-sizing: border-box;
+    backdrop-filter: blur(20px); /* Stronger blur effect for a more pronounced glass look */
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2); /* Softer shadow for depth */
+}
+
+.tutor-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 30px rgba(0, 123, 255, 0.4); /* Enhanced shadow effect on hover */
+}
+
+.tutor-card input {
+    display: none;
+}
+
+.tutor-card label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #ffffff;
+}
+
+.image-container {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-bottom: 15px;
+    border: 3px solid rgba(255, 255, 255, 0.6); /* Slightly transparent white border */
+}
+
+.tutor-image {
+    width: 100%;
+    height: auto;
+}
+
+.tutor-name {
+    font-size: 1.5em; /* Larger name font */
+    margin: 10px 0 5px;
+    color: #000000;
+}
+
+.tutor-description {
+    color: #ffffff;
+    font-size: 1em; /* Slightly larger description */
+}
+
+.submit-button {
+    margin-top: 30px;
+    padding: 15px 30px;
+    font-size: 1.2em;
+    color: white;
+    background-color: #06007c; /* Dark blue-green color */
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    display: block;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto; /* Center the button */
+}
+
+.submit-button:hover {
+    background-color: #1a0173; /* Background color on hover */
+    color: #ffffff; /* Text color on hover */
+    transform: translateY(-3px); /* Slight upward movement on hover */
+    box-shadow: 0 4px 20px rgba(0, 123, 255, 0.5); /* Added shadow for depth */
+    border: 2px solid #06007c; /* Added border on hover */
+    border-radius: 30px; /* Keep rounded corners */
+}
+
+.tutor-card.selected {
+    border: 2px solid #ffffff;
+    background-color: rgba(255, 255, 255, 0.664); /* Slight green tint for selected card */
+    
+}
+
+/* Add a stylish footer */
+.footer {
+    text-align: center;
+    margin-top: 30px;
+    font-size: 0.9em;
+    color: #8b949e;
+}

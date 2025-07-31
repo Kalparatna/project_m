@@ -1,0 +1,90 @@
+body {
+    background: linear-gradient(135deg, #01050e, #4847e2); /* Bright blue gradient */
+    font-family: 'Poppins', sans-serif;
+    padding: 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.score {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 15px 30px;
+    border-radius: 15px;
+    font-size: 2.2rem;
+    font-weight: bold;
+    margin-bottom: 30px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.review-title {
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.review-list {
+    list-style: none;
+    padding: 0;
+    width: 100%;
+    max-width: 800px;
+    text-align: left;
+}
+
+.review-list li {
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    transition: background 0.3s, transform 0.3s;
+}
+
+.review-list li:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.review-list li p {
+    margin: 8px 0;
+    font-size: 1.2rem;
+}
+
+.review-list li strong {
+    color: #ffffff;
+    font-weight: 700;
+}
+
+.quiz-button {
+    margin-top: 30px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #01050e, #4847e2);/* Bright matching blue */
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    box-shadow: 0px 8px 20px rgba(0, 191, 255, 0.4);
+    transition: background 0.3s, transform 0.3s;
+}
+
+.quiz-button:hover {
+    background: linear-gradient(135deg, #010d29, #2d2dde);
+    transform: translateY(-2px);
+}

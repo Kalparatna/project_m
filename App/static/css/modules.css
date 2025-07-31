@@ -1,0 +1,132 @@
+/* General Styling */
+body {
+    font-family: 'Poppins', sans-serif; /* Modern and clean font */
+    background: linear-gradient(135deg, #01050e, #4847e2); 
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header Styling */
+header {
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+    z-index: 10;
+}
+
+header .logo {
+    width: 150px;
+    margin-bottom: 10px;
+}
+
+header h1 {
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin-top: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Subtle shadow for a futuristic look */
+}
+
+/* Subtitle Styling */
+h2.subtitle {
+    font-size: 1.2rem;
+    color: #f0f0f0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Error Message */
+.error-message {
+    color: #ff4c4c;
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 10px;
+}
+
+/* Card Container */
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    padding: 0 30px;
+    margin-top: 50px;
+}
+
+/* Module Card Styling */
+.card {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 280px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+    transform: scale(1);
+    overflow: hidden;
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slight zoom effect */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* Enhance shadow on hover */
+}
+
+.card h2 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.card p {
+    color: #444;
+    font-size: 1rem;
+    margin-bottom: 20px;
+}
+
+/* Button Styling */
+.specific-submit-button {
+    display: inline-block;
+    padding: 12px 25px;
+    background-color: var(--primary-color); /* Blue primary color */
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.specific-submit-button:hover {
+    background-color: #03046e; /* Darker blue */
+    transform: translateY(-3px); /* Floating effect */
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3); /* Increased shadow on hover */
+}
+
+/* Footer Styling */
+footer {
+    background-color: #01050e; /* Dark footer background */
+    color: #fff;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: auto;
+    width: 100%;
+    font-size: 1rem;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* Variables for colors */
+:root {
+    --primary-color: #051dd3; /* Primary theme color (blue) */
+    --primary-dark-color: #030f94; /* Darker blue for hover states */
+    --dark-color: #2c3e50; /* Dark color for footer background */
+    --light-color: #f4f4f4; /* Light color for text */
+}

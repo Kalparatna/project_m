@@ -1,0 +1,114 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-TUTOR+ : Our Services</title>
+
+ 
+  <!-- Favicon and Icons -->
+  <link rel="icon" href="{% static 'images/favicon.ico' %}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link rel="stylesheet" href="{% static 'front/Services.css' %}">
+
+
+  
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="hero-container">
+      <div class="content">
+        <h2 class="banner-number">AI-Powered Learning Tools</h2>
+        <h3 class="headline">Our Services</h3>
+        <p class="subtext">Explore our comprehensive suite of AI-powered learning tools designed to enhance your educational journey.</p>
+        <a href="#services-sec" class="join-now-btn">Explore Services</a>
+      </div>
+      <div class="hero-image">
+        <img src="{% static 'images/svg1.png' %}" alt="Services Hero Image" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section class="services-section" id="services-sec">
+    <h2>Our Learning Services</h2>
+    <p>Discover the full suite of AI-powered learning tools designed to enhance your educational journey</p>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-robot"></i></div>
+        <div class="service-content">
+          <h3>AI Tutor</h3>
+          <p>Get personalized learning assistance with AI-powered tutors like SRK, Kohli & more!</p>
+          <a href="{% url 'index' %}" class="service-btn">Start Learning</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-clipboard-check"></i></div>
+        <div class="service-content">
+          <h3>Quizzes</h3>
+          <p>Test your knowledge with adaptive quizzes tailored to your level.</p>
+          <a href="{% url 'quiz:quiz_home' %}" class="service-btn">Take a Quiz</a>
+        </div>
+      </div>
+ 
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-calendar-alt"></i></div>
+        <div class="service-content">
+          <h3>Study Planner</h3>
+          <p>Create optimized study schedules to meet your learning goals.</p>
+          <a href="{% url 'studyplanner:index' %}" class="service-btn">Plan Your Studies</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-code"></i></div>
+        <div class="service-content">
+          <h3>Code AI</h3>
+          <p>Get help learning to code with real-time feedback and exercises.</p>
+          <a href="{% url 'codeai:index' %}" class="service-btn">Start Coding</a>
+        </div>
+      </div>
+      
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-video"></i></div>
+        <div class="service-content">
+          <h3>Video Summarizer</h3>
+          <p>Summarize educational videos to extract key points quickly.</p>
+          <a href="{% url 'summaries:index' %}" class="service-btn">Summarize Videos</a>
+        </div>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-file-alt"></i></div>
+        <div class="service-content">
+          <h3>Assignment Generator</h3>
+          <p>Generate assignments based on any topic or learning objective.</p>
+          <a href="{% url 'assignments:generate_resource' %}" class="service-btn">Generate Assignments</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <h2>Ready to Transform Your Learning?</h2>
+    <p>Join thousands of students already benefiting from our AI-powered tools.</p>
+    <a href="" class="cta-btn">Get Started Today</a>
+
+    <div class="social-media-links">
+      <a href="https://facebook.com" target="_blank" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+      <a href="https://twitter.com" target="_blank" class="social-icon"><i class="fab fa-twitter"></i></a>
+      <a href="https://linkedin.com" target="_blank" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+      <a href="https://instagram.com" target="_blank" class="social-icon"><i class="fab fa-instagram"></i></a>
+    </div>
+  </section>
+  <script src="{% static 'js/Navbar.js' %}"></script>  
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+/* General body styling */
+body {
+    background-color: #e0e8f9;
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container for quiz content */
+.quiz-container {
+    background: rgba(16, 1, 183, 0.8);
+    backdrop-filter: blur(8px); /* Glass-like effect */
+    border-radius: 15px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    width: 300px;
+    text-align: center;
+    color: #fff;
+    display: flex;
+    flex-direction: column; /* Ensures content is stacked vertically */
+    justify-content: space-between;
+}
+
+/* Title styling */
+h1 {
+    color: #ffffff;
+    font-size: 1.8em;
+    margin-bottom: 20px; /* Space between title and other content */
+}
+
+/* Paragraph styling for quiz info */
+.quiz-info p {
+    font-size: 1.1em;
+    color: #ffffff;
+    margin: 10px 0;
+}
+
+/* Button styling */
+button {
+    padding: 15px 25px;
+    background: #020e95; /* Dark blue button */
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.4s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0px 10px 20px rgba(18, 67, 117, 0.3);
+}
+
+/* Button hover effect */
+button:hover {
+    background: #020e95;
+    transform: translateY(-1px); /* 3D lift effect on hover */
+    box-shadow: 0px 15px 25px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+}
+

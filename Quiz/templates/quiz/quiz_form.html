@@ -1,0 +1,56 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ mcq_topic.title }} Quiz</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/quiz_form.css' %}">
+</head>
+<body>
+    <!-- Title -->
+    <div class="header">
+        <h1>{{ mcq_topic.title }} Quiz</h1>
+    </div>
+    
+    <!-- Quiz Form -->
+    <div class="quiz-form-container">
+        <form method="POST">
+            {% csrf_token %}
+            {% for mcq in mcqs %}
+                <div class="question">
+                    <h3>{{ mcq.question_no }}. {{ mcq.question }}</h3>
+                    <ul>
+                        <li>
+                            <label>
+                                <input type="radio" name="mcq_{{ mcq.id }}" value="{{ mcq.option_1 }}">
+                                {{ mcq.option_1 }}
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="mcq_{{ mcq.id }}" value="{{ mcq.option_2 }}">
+                                {{ mcq.option_2 }}
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="mcq_{{ mcq.id }}" value="{{ mcq.option_3 }}">
+                                {{ mcq.option_3 }}
+                            </label>
+                        </li>
+                        <li>
+                            <label>
+                                <input type="radio" name="mcq_{{ mcq.id }}" value="{{ mcq.option_4 }}">
+                                {{ mcq.option_4 }}
+                            </label>
+                        </li>
+                    </ul>
+                </div>
+            {% endfor %}
+            <button type="submit">Submit Quiz</button>
+        </form>
+    </div>
+</body>
+</html>

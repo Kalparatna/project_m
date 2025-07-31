@@ -1,0 +1,29 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz Results</title>
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <link rel="stylesheet" href="{% static 'css/quiz_results.css' %}">
+</head>
+<body>
+    <h1>Quiz Results for {{ mcq_topic.title }}</h1>
+
+    <p class="score">Your Score: {{ score }} / {{ total_questions }}</p>
+
+    <h2 class="review-title">Review Questions:</h2>
+    <ul class="review-list">
+        {% for mcq in mcqs %}
+        <li>
+            <p><strong>Q{{ mcq.question_no }}:</strong> {{ mcq.question }}</p>
+            <p><strong>Correct Answer:</strong> {{ mcq.correct_answer }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'quiz:quiz_home' %}" class="quiz-button">Take Another Quiz</a>
+</body>
+</html>

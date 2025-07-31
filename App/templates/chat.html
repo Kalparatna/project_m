@@ -1,0 +1,203 @@
+{% load static %}
+{% load custom_filters %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/chat.css' %}">
+    <link rel="icon" href="{% static 'images/favicon.ico' %}">
+    <title>Chat with {{ character }}</title>
+
+    <!-- Include html2pdf Library from CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+    <script>
+        let isSpeaking = false;
+        let utterance = null;
+
+        // Utility function to strip HTML tags
+        function stripHtml(html) {
+            const tempDiv = document.createElement('div');
+            tempDiv.innerHTML = html;
+            return tempDiv.textContent || tempDiv.innerText || ""; // Return only text content
+        }
+
+        // Function to read or stop bot's response
+        function toggleReadBotResponse(responseText) {
+            const plainText = stripHtml(responseText); // Strip out HTML tags before reading
+
+            if (isSpeaking) {
+                // If already speaking, stop the speech
+                window.speechSynthesis.cancel();
+                isSpeaking = false;
+            } else {
+                // Create new utterance only if not currently speaking
+                utterance = new SpeechSynthesisUtterance(plainText);
+
+                // Set optional properties (rate, pitch, language, etc.)
+                utterance.rate = 1;  // Speed of speech (1 is normal)
+                utterance.pitch = 1; // Pitch (1 is normal)
+                utterance.lang = 'en-US'; // Set language to English (US)
+
+                // Set the flag to true when speaking starts
+                utterance.onstart = function() {
+                    isSpeaking = true;
+                };
+
+                // Reset the flag when speaking ends
+                utterance.onend = function() {
+                    isSpeaking = false;
+                };
+
+                // Speak the response text
+                window.speechSynthesis.speak(utterance);
+            }
+        }
+
+        // Function to handle module button click
+        function handleModuleClick(moduleTitle) {
+            window.speechSynthesis.cancel(); // Stop speech when clicking other buttons
+            const inputField = document.querySelector('input[name="user_input"]');
+            inputField.value = moduleTitle;
+            inputField.form.submit();
+        }
+
+        // Function to clear chat and stop speech synthesis
+        function clearChat() {
+            window.speechSynthesis.cancel(); // Stop speech when clicking "Clear Chat"
+            const form = document.querySelector('form');
+            const clearChatInput = document.createElement('input');
+            clearChatInput.type = 'hidden';
+            clearChatInput.name = 'clear_chat';
+            form.appendChild(clearChatInput);
+            form.submit();
+        }
+
+        // Function to start voice recognition
+        function startVoiceInput() {
+            window.speechSynthesis.cancel(); // Stop speech when starting voice input
+            const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+            recognition.lang = 'en-US';
+            recognition.interimResults = false;
+
+            recognition.onresult = function(event) {
+                const userInput = event.results[0][0].transcript;
+                const inputField = document.querySelector('input[name="user_input"]');
+                inputField.value = userInput;
+                inputField.form.submit();
+            };
+
+            recognition.onerror = function(event) {
+                console.error("Speech recognition error: ", event.error);
+            };
+
+            recognition.start();
+        }
+
+        // Function to export chat history as a PDF
+        function exportChatToPDF() {
+            // Cancel any ongoing speech synthesis
+            window.speechSynthesis.cancel();
+
+            const chatHistoryElement = document.getElementById('chatBox'); // Get the chat section
+            const opt = {
+                margin: 1,
+                filename: 'Notes.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            // Convert chat history to PDF
+            html2pdf().from(chatHistoryElement).set(opt).save();
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <!-- Sidebar for Learning Modules -->
+        <div class="sidebar">
+            <h3>Learning Modules</h3>
+            <div class="modules">
+                {% for module in modules %}
+                    <div class="module-card">
+                        <h4>{{ module.title }}</h4>
+                        <p>{{ module.description }}</p>
+                        <button class="module-btn" onclick="handleModuleClick('{{ module.title }}')">Select Module</button>
+                    </div>
+                {% empty %}
+                    <p>No modules available</p>
+                {% endfor %}
+            </div>
+        </div>
+
+        <!-- Chat Section -->
+        <div class="chat-section">
+            <div class="chat-header">
+                {{ character }}
+            </div>
+
+            <div class="chat-content" id="chatBox">
+                {% if response %}
+                <div class="message user">
+                    <strong>User:</strong> {{ user_input }}
+                </div>
+                <div class="message bot">
+                    <strong>{{ character }}:</strong>
+                    <div class="bot-response">{{ response|safe }}</div>
+                    <button class="read-response-btn" onclick="toggleReadBotResponse('{{ response|escapejs }}')">🔊 Read/Stop</button>
+                </div>
+                {% endif %}
+
+                <div id="chat-history">
+                    {% for chat in chat_history %}
+                        <div class="message user">
+                            <strong>User:</strong> {{ chat.message }}
+                        </div>
+                        <div class="message bot">
+                            <strong>{{ chat.tutor_id }}:</strong>
+                            <div class="bot-response">{{ chat.response|safe }}</div>
+                            <button class="read-response-btn" onclick="toggleReadBotResponse('{{ chat.response|escapejs }}')">🔊 Read/Stop Response</button>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+
+            <!-- Chatbox input section -->
+            <div class="chat-footer">
+                <form method="POST">
+                    {% csrf_token %}
+                    <input type="text" name="user_input" placeholder="Ask your question..." required>
+                    <button type="submit">Send</button>
+                    <button type="button" onclick="startVoiceInput()">🎤</button>
+                    <button type="button" onclick="clearChat()">Clear Chat</button> 
+                    <button type="button" onclick="exportChatToPDF()">Export Chat</button>
+                    
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .read-response-btn {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin-left: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .read-response-btn:hover {
+            background-color: #45a049;
+        }
+
+        .chat-footer button {
+            margin-left: 10px;
+        }
+    </style>
+</body>
+</html>
