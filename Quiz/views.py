@@ -40,7 +40,7 @@ def generate_mcqs(topic, num_questions, retries=3):
             print("\n\n🌟 Raw Gemini Response:")
             print(response.text)  # Debugging output
             
-            # ✅ Extract only JSON part using regex
+
             match = re.search(r'\{.*\}', response.text, re.DOTALL)
             if match:
                 json_content = match.group(0)
@@ -75,11 +75,8 @@ def quiz_home(request):
             questions = generate_mcqs(topic, num_questions)
             if not questions:
                 return render(request, 'quiz/error.html', {"error": "Failed to generate MCQs."})
-
-            # Debug: Print the generated questions to inspect the structure
             print("Generated Questions:", questions)
             
-            # Save the topic with the number of questions
             mcq_topic = MCQTopic.objects.create(title=topic, num_questions=num_questions)
 
             # Store each MCQ
@@ -117,7 +114,7 @@ def quiz_start(request, topic_id):
     return render(request, 'quiz/start_quiz.html', {'topic': mcq_topic})
 
 def take_quiz(request, topic_id):
-    # Fetch the selected topic and its associated MCQs
+
     mcq_topic = get_object_or_404(MCQTopic, id=topic_id)
     mcqs = MCQ.objects.filter(topic=mcq_topic)
 
@@ -126,13 +123,11 @@ def take_quiz(request, topic_id):
         score = 0
         total_questions = mcqs.count()
 
-        # Loop through each MCQ and check the submitted answer
         for mcq in mcqs:
             selected_answer = request.POST.get(f'mcq_{mcq.id}')
             if selected_answer == mcq.correct_answer:
-                score += 1
-        
-        # Display the score and results
+                score += 1        
+
         messages.success(request, f'You scored {score} out of {total_questions}!')
         return render(request, 'quiz/quiz_results.html', {
             'mcq_topic': mcq_topic,

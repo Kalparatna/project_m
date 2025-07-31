@@ -21,7 +21,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-09y4lz*!^1mgyvf(*y3gviitw5$igo-^yy9ev*ivekx)8ex1#s'
+SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -32,18 +32,6 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'App',
-    'Quiz',
-    'studyplanner',
-    'assignments',
-    'codeai',
-    'summaries',
 
 ]
 
@@ -64,11 +52,6 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
          'DIRS': [
             os.path.join(BASE_DIR, 'App', 'templates'),
-            os.path.join(BASE_DIR, 'Quiz', 'templates'),
-            os.path.join(BASE_DIR, 'studyplanner', 'templates'),  # Add this line
-            os.path.join(BASE_DIR, 'assignments', 'templates'),
-            os.path.join(BASE_DIR, 'codeai', 'templates'), 
-            os.path.join(BASE_DIR, 'summaries', 'templates'), 
         ],
          
         'APP_DIRS': True,
@@ -136,23 +119,9 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'App/static'),
-                    os.path.join(BASE_DIR, 'assignments/static'),
-                    os.path.join(BASE_DIR, 'codeai/static'),
-                    os.path.join(BASE_DIR, 'Quiz/static'),
-                    os.path.join(BASE_DIR, 'studyplanner/static'),
-                    os.path.join(BASE_DIR, 'summaries/static'),
-                    
-                    ]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'App/static')]
 
-
-
-
-# Default primary key field type
-# https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
